@@ -30,6 +30,7 @@ let src = stdenv.mkDerivation {
   '';
 
   installPhase = ''
+    mkdir $out
     extensions=$(find cardano-c -name '*_wrap.c')
     for i in $extensions; do
       mkdir -p $out/''${i%/*}
